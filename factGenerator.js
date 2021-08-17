@@ -51,7 +51,7 @@ function onThisDay() {
             console.log(data)
 
             var historicalFactHeading = document.createElement("h3");
-            historicalFactHeading.classList.add("card", "bg-warning");
+            historicalFactHeading.classList.add("card", "bg-warning", "mt-3");
             historicalFactHeading.textContent = "On this day in " + data.contents.year + ":"
             factContainer.appendChild(historicalFactHeading)
 

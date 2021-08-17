@@ -2,9 +2,9 @@
 var currentDay = moment().format('dddd') + " " + moment().format('MMMM Do YYYY');
 var currentClockTime = moment().format('h:mm:ss a');
 var greetingText = document.querySelector(".header");
-var morningHours = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11]
+var morningHours = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 var afternoonHours = [12, 13, 14, 15, 16, 17];
-var eveningHours = [18, 19, 20, 21, 22, 23]
+var eveningHours = [18, 19, 20, 21, 22, 23];
 
 var interval = setInterval(function() {
     var rightNow = moment()

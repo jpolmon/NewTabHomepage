@@ -1,6 +1,11 @@
+let weatherBtn = document.querySelector("#weatherBtn")
+
 var currentDay = moment().format('dddd') + " " + moment().format('MMMM Do YYYY');
 var currentClockTime = moment().format('h:mm:ss a');
-
+var greetingText = document.querySelector(".header");
+var morningHours = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
+var afternoonHours = [12, 13, 14, 15, 16, 17];
+var eveningHours = [18, 19, 20, 21, 22, 23];
 
 var interval = setInterval(function() {
     var rightNow = moment()
@@ -10,15 +15,21 @@ var interval = setInterval(function() {
     $("#currentDay"). html(currentDay + " " + rightNow.format("hh:mm:ss A"));
 }, 1000);
 
+if (morningHours.includes(moment().format("h"))){
+greetingText.textContent = "Good Morning"
+console.log(greetingText)
+console.log(moment().format("h"))}
+else if (afternoonHours.includes(moment().format("h")) ){
+    greetingText.textContent = "Good Afternoon"
+console.log(greetingText)
+console.log(moment().format("h"))}
+else {
+    greetingText.textContent = "Good Afternoon"
+console.log(greetingText)
+console.log(moment().format("h"))
+}
 
-//    <script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.min.js"></script>
-//     <script src="https://cdnjs.cloudflare.com/ajax/libs/moment.js/2.24.0/moment.min.js"></script>
 
-
-
-// <h1 class = "header">Welcome "user's name"</h1>
-// <p> Welcome to your homepage! I hope you have a wonderful day! </p>
-// <p id="currentDay"></p>
 
 generateBackground();
 
@@ -30,7 +41,7 @@ function generateBackground() {
     .then(response => {
         if(response.ok) {
             console.log(response);
-            document.body.style.backgroundImage = `url(${response.url})`
+            document.body.style.backgroundImage = `url(${response.url})`;
         }
     })
     .catch(error => {
@@ -38,14 +49,18 @@ function generateBackground() {
     })  
 }
 
-getWeatherInfo();
+let lat; 
+let long;
+navigator.geolocation.getCurrentPosition(function(position) {
+    lat = position.coords.latitude;
+    long = position.coords.longitude;
+})
 
 function getWeatherInfo() {
     
-    let lat;
-    let long;
-    let apiKey = "2c8a59c12a0f5d478caa56dfd4887203";            
-    let queryUrl1 = `http://ip-api.com/json/`;
+    console.log("why tho?");
+    let apiKey = "2c8a59c12a0f5d478caa56dfd4887203";
+    let queryUrl1 = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&exclude=minutely,hourly,alerts&appid=${apiKey}`;           
     
     fetch(queryUrl1)
         .then(response => {
@@ -53,24 +68,7 @@ function getWeatherInfo() {
                 response.json()
                 .then(data => {
                     console.log(data);
-                    lat = data.lat;
-                    long = data.lon;
-                    console.log(lat);
-                    console.log(long);
-                    let queryurl2 = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&exclude=minutely,hourly,alerts&appid=${apiKey}`;
-                    return fetch(queryurl2);
-                })
-                .then(response => {
-                    if (response.ok) {
-                        response.json()
-                        .then(data => {
-                            console.log(data);
-                            renderWeather(data);
-                        })
-                    }
-                })
-                .catch(error => {
-                    console.log(error);
+                    renderWeather(data);
                 })
             }
         })
@@ -80,6 +78,7 @@ function getWeatherInfo() {
     });
 }
     
+
 function renderWeather(weatherData) {
     
     let weatherArray = [
@@ -130,7 +129,10 @@ function renderWeather(weatherData) {
         udpateIcon.innerHTML = `<img src="http://openweathermap.org/img/wn/${weatherArray[i].icon}@2x.png" alt="current weather icon">`;
         updateTemp.textContent = `${weatherArray[i].temp}°F`;
     }
+
+    document.getElementById("weatherCards").style.display = "flex";
+    document.getElementById("weatherBtn").style.display = "none";
 }    
     
-    
+weatherBtn.addEventListener("click", getWeatherInfo);
       

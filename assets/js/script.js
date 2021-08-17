@@ -24,7 +24,7 @@ else if (afternoonHours.includes(moment().format("h")) ){
 console.log(greetingText)
 console.log(moment().format("h"))}
 else {
-    greetingText.textContent = "Good Afternoon"
+    greetingText.textContent = "Good Evening"
 console.log(greetingText)
 console.log(moment().format("h"))
 }

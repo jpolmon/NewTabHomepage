@@ -1,15 +1,19 @@
 let apiKey = "uEauUrGQXbeLmF563UiIKAeF"
-let factUrl = "https://api.fungenerators.com/fact/random?&api_key=uEauUrGQXbeLmF563UiIKAeF"
+let factUrl = `http://api.fungenerators.com/fact/random?&api_key=${apiKey}`
+var factContainer = document.getElementById("fact-generator")
+var generateBtn = document.getElementById("generateButton")
+
+generateFact();
 
 function generateFact() {
 
 
-var factContainer = document.getElementById("fact-generator")
 
-fetch(factUrl)
+fetch(factUrl, {cache:"no-store"})
+
 
         .then(function (response) {
-            console.log(response.ok)
+            // console.log(response.ok)
             return response.json()
         })
         .then(function (data) {
@@ -21,6 +25,7 @@ fetch(factUrl)
 
 			var fact = document.createElement("h3");
             fact.textContent = data.contents.fact
+
             factContainer.appendChild(fact);
             
 
@@ -30,5 +35,5 @@ fetch(factUrl)
 
 
 
-generateFact();
+
 

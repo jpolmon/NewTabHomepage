@@ -3,25 +3,7 @@ let factUrl = "https://api.fungenerators.com/fact/random?&api_key=uEauUrGQXbeLmF
 
 function generateFact() {
 
-// 	fetch(factUrl, {
-// 		method: "GET",
-// 		body: JSON.stringify(),
-// 		headers: {
-// 			"accept": "application/JSON",
-// 			"X-Fungenerators-Api-Secret": apiKey,
-// 		},
-// 		credentials: "same-origin"
-// 	}).then(function(response) {
-// 		response.status
-// 		response.statusText
-// 		response.headers
-// 		response.url
 
-// 		return response.text()
-// 	}, function(error) {
-// 		error.message
-// 	})
-// }
 var factContainer = document.getElementById("fact-generator")
 
 fetch(factUrl)

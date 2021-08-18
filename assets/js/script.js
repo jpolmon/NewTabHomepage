@@ -15,19 +15,42 @@ var interval = setInterval(function() {
     $("#currentDay"). html(currentDay + " " + rightNow.format("hh:mm:ss A"));
 }, 1000);
 
-if (morningHours.includes(moment().format("h"))){
+if (morningHours.includes(moment().hours())){
 greetingText.textContent = "Good Morning"
 console.log(greetingText)
-console.log(moment().format("h"))}
-else if (afternoonHours.includes(moment().format("h")) ){
+console.log(moment().hours())}
+else if (afternoonHours.includes(moment().hours()) ){
     greetingText.textContent = "Good Afternoon"
 console.log(greetingText)
-console.log(moment().format("h"))}
+console.log(moment().hours())}
 else {
     greetingText.textContent = "Good Evening"
 console.log(greetingText)
 console.log(moment().format("h"))
 }
+
+var nameSubmissionButton = $(".submit")
+var nameEntryArea = $(".name")
+var nameGreeting = $("#nameslot")
+
+nameSubmissionButton.on("click", function (){
+        var name = $(this).siblings().eq(1).attr("text")
+        localStorage["Name"] = $(this).siblings().eq(1).val()
+
+        if (nameEntryArea.val()){
+            nameEntryArea.hide();
+            nameSubmissionButton.hide();
+            
+        
+
+        }
+     
+        //console.log($(this).siblings().eq(1).val())
+     })
+     //if (nameValue){
+       // nameRemover.style.display="none"
+        //buttonRemover.style.display="none"
+     //}
 
 
 

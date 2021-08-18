@@ -33,14 +33,11 @@ var nameSubmissionButton = $(".submit")
 var nameEntryArea = $(".name")
 var nameGreeting = $("#name-slot")
 
-nameSubmissionButton.on("click", function (){
+nameSubmissionButton.on("click", function storeName(){
         localStorage["Name"] = $(this).siblings().eq(2).val()
 
         if (nameEntryArea.val()){
-            nameEntryArea.hide();
-            nameSubmissionButton.hide();
-            var displayName = localStorage.getItem("Name")
-            nameGreeting.text(displayName)
+            displayTheName()
         }
         //console.log($(this).siblings().eq(1).val())
      })
@@ -49,7 +46,22 @@ nameSubmissionButton.on("click", function (){
         //buttonRemover.style.display="none"
      //}
 
+      function initiateNamePlate() {
+          if (localStorage["Name"] === ""){
+              storeName()
+          }
+        //var initiateName = (localStorage.getItem("Name"));
+       // nameEntryArea.val(initiateName);}
+       displayTheName()
+    }
 
+        function displayTheName (){
+            nameEntryArea.hide();
+            nameSubmissionButton.hide();
+            var displayName = localStorage.getItem("Name")
+            nameGreeting.text(displayName)
+        }
+        
 
 generateBackground();
 
@@ -156,3 +168,4 @@ function renderWeather(weatherData) {
     
 weatherBtn.addEventListener("click", getWeatherInfo);
       
+initiateNamePlate()

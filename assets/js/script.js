@@ -31,20 +31,17 @@ console.log(moment().format("h"))
 
 var nameSubmissionButton = $(".submit")
 var nameEntryArea = $(".name")
-var nameGreeting = $("#nameslot")
+var nameGreeting = $("#name-slot")
 
 nameSubmissionButton.on("click", function (){
-        var name = $(this).siblings().eq(1).attr("text")
-        localStorage["Name"] = $(this).siblings().eq(1).val()
+        localStorage["Name"] = $(this).siblings().eq(2).val()
 
         if (nameEntryArea.val()){
             nameEntryArea.hide();
             nameSubmissionButton.hide();
-            
-        
-
+            var displayName = localStorage.getItem("Name")
+            nameGreeting.text(displayName)
         }
-     
         //console.log($(this).siblings().eq(1).val())
      })
      //if (nameValue){

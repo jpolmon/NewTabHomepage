@@ -15,21 +15,53 @@ var interval = setInterval(function() {
     $("#currentDay"). html(currentDay + " " + rightNow.format("hh:mm:ss A"));
 }, 1000);
 
-if (morningHours.includes(moment().format("h"))){
+if (morningHours.includes(moment().hours())){
 greetingText.textContent = "Good Morning"
 console.log(greetingText)
-console.log(moment().format("h"))}
-else if (afternoonHours.includes(moment().format("h")) ){
+console.log(moment().hours())}
+else if (afternoonHours.includes(moment().hours()) ){
     greetingText.textContent = "Good Afternoon"
 console.log(greetingText)
-console.log(moment().format("h"))}
+console.log(moment().hours())}
 else {
-    greetingText.textContent = "Good Afternoon"
+    greetingText.textContent = "Good Evening"
 console.log(greetingText)
 console.log(moment().format("h"))
 }
 
+var nameSubmissionButton = $(".submit")
+var nameEntryArea = $(".name")
+var nameGreeting = $("#name-slot")
 
+nameSubmissionButton.on("click", function storeName(){
+        localStorage["Name"] = $(this).siblings().eq(2).val()
+
+        if (nameEntryArea.val()){
+            displayTheName()
+        }
+        //console.log($(this).siblings().eq(1).val())
+     })
+     //if (nameValue){
+       // nameRemover.style.display="none"
+        //buttonRemover.style.display="none"
+     //}
+
+      function initiateNamePlate() {
+          if (localStorage["Name"] === ""){
+              storeName()
+          }
+        //var initiateName = (localStorage.getItem("Name"));
+       // nameEntryArea.val(initiateName);}
+       displayTheName()
+    }
+
+        function displayTheName (){
+            nameEntryArea.hide();
+            nameSubmissionButton.hide();
+            var displayName = localStorage.getItem("Name")
+            nameGreeting.text(displayName)
+        }
+        
 
 generateBackground();
 
@@ -136,3 +168,4 @@ function renderWeather(weatherData) {
     
 weatherBtn.addEventListener("click", getWeatherInfo);
       
+initiateNamePlate()

@@ -10,3 +10,55 @@
     min-width: 10%;
     align-items: flex-start;
 }
+
+:root {
+    --yellow: #f6e767;
+    --white: #f6f7f8;
+    --black: #2c2e31;
+  }
+  
+  * {
+    box-sizing: border-box;
+  }
+  #jokeGenerator {
+    display: flex;
+    flex-flow: column nowrap;
+    align-items: center;
+    padding: 2rem;
+    place-content: center;
+    min-height: 100vh;
+    background-color: var(--black);
+    color: var(--white);
+    text-align: center;
+    font-size: 1.25rem;
+    font-family: Frutiger, "Frutiger Linotype", Univers, Calibri, "Gill Sans",
+      "Gill Sans MT", "Myriad Pro", Myriad, "DejaVu Sans Condensed",
+      "Liberation Sans", "Nimbus Sans L", Tahoma, Geneva, "Helvetica Neue",
+      Helvetica, Arial, sans-serif;
+  }
+  
+  p {
+    margin: 2rem 0 0;
+  }
+  
+  #button {
+    background: var(--yellow);
+    color: var(--black);
+    padding: 1rem 2rem;
+    font-weight: 300;
+    text-transform: uppercase;
+    border: none;
+    border-radius: 4px;
+    transition: 0.1s ease transform;
+    cursor: pointer;
+  }
+  
+  #button:active {
+    transform: translatey(3px);
+  }
+  
+  #punchline {
+    font-weight: 600;
+    font-size: 1.5rem;
+  }
+  

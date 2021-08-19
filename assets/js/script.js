@@ -1,4 +1,5 @@
-let weatherBtn = document.querySelector("#weatherBtn")
+let weatherBtn = document.querySelector("#weatherBtn");
+let resetBtn = document.querySelector("#renameBtn");
 
 var currentDay = moment().format('dddd') + " " + moment().format('MMMM Do YYYY');
 var currentClockTime = moment().format('h:mm:ss a');
@@ -7,12 +8,14 @@ var morningHours = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 var afternoonHours = [12, 13, 14, 15, 16, 17];
 var eveningHours = [18, 19, 20, 21, 22, 23];
 var greetingSpan = document.getElementById("greetingSpan");
-var greetingSubheader = document.getElementById("greetingSubheader")
-var timeHeader = document.querySelector(".timeHeader")
-var mainContent = document.querySelector("main")
+var greetingSubheader = document.getElementById("greetingSubheader");
+var timeHeader = document.querySelector(".timeHeader");
+var mainContent = document.querySelector("main");
+
+generateBackground();
 
 var interval = setInterval(function () {
-    var rightNow = moment()
+    var rightNow = moment();
     $('#currentDay').html(rightNow.format("YYYY MMMM DD") + " "
         + rightNow.format("dddd")
             .substring(0, 3).toLocaleUpperCase());
@@ -20,83 +23,83 @@ var interval = setInterval(function () {
 }, 1000);
 
 if (morningHours.includes(moment().hours())) {
-    greetingText.textContent = "Good Morning,"
-    console.log(greetingText)
-    console.log(moment().hours())
+    greetingText.textContent = "Good Morning,";
 }
 else if (afternoonHours.includes(moment().hours())) {
-    greetingText.textContent = "Good Afternoon,"
-    console.log(greetingText)
-    console.log(moment().hours())
+    greetingText.textContent = "Good Afternoon,";
 }
 else {
-    greetingText.textContent = "Good Evening,"
-    console.log(greetingText)
-    console.log(moment().format("h"))
+    greetingText.textContent = "Good Evening,";
 }
 var keyGeneration;
 if (localStorage === undefined || localStorage === null || localStorage["Name"] === undefined) { 
-    keyGeneration = localStorage.setItem("Name", "") 
+    keyGeneration = localStorage.setItem("Name", "");
 } else {
-    keyGeneration = localStorage["Name"]
+    keyGeneration = localStorage["Name"];
 }
 
-var nameSubmissionButton = $(".submit")
-var nameEntryArea = $(".name")
-var nameGreeting = $("#name-slot")
+var nameSubmissionButton = $(".submit");
+var nameEntryArea = $(".name");
+var nameGreeting = $("#name-slot");
 
 if (localStorage["Name"] !== "") {
-    hideNameInput()
-    nameGreeting.text(localStorage["Name"])
+    hideNameInput();
+    nameGreeting.text(localStorage["Name"]);
     displayPage();
 }
 
 nameSubmissionButton.on("click", function () {
-    console.log(nameEntryArea.val())
-    localStorage["Name"] = nameEntryArea.val()
-    hideNameInput()
+    localStorage["Name"] = nameEntryArea.val();
+    hideNameInput();
     nameGreeting.text(localStorage["Name"]);
     displayPage();
-
 })
 
 function hideNameInput() {
-    nameEntryArea.hide()
-    nameSubmissionButton.hide()
+    nameEntryArea.hide();
+    nameSubmissionButton.hide();
 }
 
 
 function displayTheName() {
     nameEntryArea.hide();
     nameSubmissionButton.hide();
-    var displayName = localStorage.getItem("Name")
-    nameGreeting.text(displayName)
-    console.log("called when we know theres a name")
+    var displayName = localStorage.getItem("Name");
+    nameGreeting.text(displayName);
 }
 
 function displayPage() {
     greetingSpan.classList.remove("invisible");
     greetingSubheader.classList.remove("invisible");
     timeHeader.classList.remove("invisible");
-    mainContent.classList.remove("invisible")
+    mainContent.classList.remove("invisible");
+    resetBtn.classList.remove("invisible");
 }
 
-generateBackground();
+function resetPage() {
+    localStorage.clear();
+    greetingSpan.classList.add("invisible");
+    greetingSubheader.classList.add("invisible");
+    timeHeader.classList.add("invisible");
+    mainContent.classList.add("invisible");
+    resetBtn.classList.add("invisible");
+    nameEntryArea.show();
+    nameSubmissionButton.show();
+}
 
 function generateBackground() {
 
-    let queryUrl = 'https://picsum.photos/1920/1080?grayscale&blur=2'
+    let queryUrl = 'https://picsum.photos/1920/1300?grayscale&blur=2';
 
     fetch(queryUrl)
         .then(response => {
             if (response.ok) {
-                console.log(response);
                 document.body.style.backgroundImage = `url(${response.url})`;
             }
         })
         .catch(error => {
             console.log(error);
-        })
+        });
 }
 
 let lat;
@@ -108,7 +111,6 @@ navigator.geolocation.getCurrentPosition(function (position) {
 
 function getWeatherInfo() {
 
-    console.log("why tho?");
     let apiKey = "2c8a59c12a0f5d478caa56dfd4887203";
     let queryUrl1 = `https://api.openweathermap.org/data/2.5/onecall?lat=${lat}&lon=${long}&exclude=minutely,hourly,alerts&appid=${apiKey}`;
 
@@ -123,14 +125,11 @@ function getWeatherInfo() {
             }
         })
         .catch(error => {
-
             console.log(error);
         });
 }
 
-
 function renderWeather(weatherData) {
-
     let weatherArray = [
         {
             day: "0",
@@ -184,4 +183,5 @@ function renderWeather(weatherData) {
     document.getElementById("weatherBtn").style.display = "none";
 }
 
+resetBtn.addEventListener("click", resetPage);
 weatherBtn.addEventListener("click", getWeatherInfo);

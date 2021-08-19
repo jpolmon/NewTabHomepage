@@ -5,6 +5,12 @@
     padding: 0;
 }
 
+#weatherBtn {
+    width: 600px;
+    height: 125px;
+    font-size: 16px;
+}
+
 #card {
     min-width: 10%;
     align-items: flex-start;
@@ -39,7 +45,7 @@
     margin: 2rem 0 0;
   }
   
-  .buttons {
+  button {
     background: var(--yellow);
     color: var(--black);
     padding: 1rem 2rem;
@@ -51,7 +57,7 @@
     cursor: pointer;
   }
   
-  .buttons:active {
+  button:active {
     transform: translatey(3px);
   }
   

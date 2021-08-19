@@ -3,7 +3,6 @@
     flex-direction: row;
     justify-content: space-between;
     padding: 0;
-    width: 45%;
 }
 
 #card {
@@ -20,14 +19,13 @@
   * {
     box-sizing: border-box;
   }
-  #jokeGenerator {
+  body {
     display: flex;
     flex-flow: column nowrap;
     align-items: center;
     padding: 2rem;
     place-content: center;
     min-height: 100vh;
-    background-color: var(--black);
     color: var(--white);
     text-align: center;
     font-size: 1.25rem;
@@ -41,7 +39,7 @@
     margin: 2rem 0 0;
   }
   
-  #button {
+  .buttons {
     background: var(--yellow);
     color: var(--black);
     padding: 1rem 2rem;
@@ -53,12 +51,17 @@
     cursor: pointer;
   }
   
-  #button:active {
+  .buttons:active {
     transform: translatey(3px);
   }
   
   #punchline {
     font-weight: 600;
     font-size: 1.5rem;
+  }
+
+  .headerbox {
+      width: 100%;
+      color: white;
   }
   

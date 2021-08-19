@@ -11,11 +11,6 @@
     align-items: flex-start;
 }
 
-<<<<<<< HEAD
-#fact-generator {
-    opacity: 0.7;
-}
-=======
 :root {
     --yellow: #f6e767;
     --white: #f6f7f8;
@@ -67,4 +62,3 @@
     font-size: 1.5rem;
   }
   
->>>>>>> a3fad59b192f70c32f029513d6c43f37e0b89939

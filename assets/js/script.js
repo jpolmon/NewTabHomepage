@@ -6,6 +6,10 @@ var greetingText = document.querySelector(".header");
 var morningHours = [0, 1, 2, 3, 4, 5, 6, 7, 8, 9, 10, 11];
 var afternoonHours = [12, 13, 14, 15, 16, 17];
 var eveningHours = [18, 19, 20, 21, 22, 23];
+var greetingSpan = document.getElementById("greetingSpan");
+var greetingSubheader = document.getElementById("greetingSubheader")
+var timeHeader = document.querySelector(".timeHeader")
+var mainContent = document.querySelector("main")
 
 var interval = setInterval(function () {
     var rightNow = moment()
@@ -16,17 +20,17 @@ var interval = setInterval(function () {
 }, 1000);
 
 if (morningHours.includes(moment().hours())) {
-    greetingText.textContent = "Good Morning"
+    greetingText.textContent = "Good Morning,"
     console.log(greetingText)
     console.log(moment().hours())
 }
 else if (afternoonHours.includes(moment().hours())) {
-    greetingText.textContent = "Good Afternoon"
+    greetingText.textContent = "Good Afternoon,"
     console.log(greetingText)
     console.log(moment().hours())
 }
 else {
-    greetingText.textContent = "Good Evening"
+    greetingText.textContent = "Good Evening,"
     console.log(greetingText)
     console.log(moment().format("h"))
 }
@@ -44,13 +48,16 @@ var nameGreeting = $("#name-slot")
 if (localStorage["Name"] !== "") {
     hideNameInput()
     nameGreeting.text(localStorage["Name"])
+    displayPage();
 }
 
 nameSubmissionButton.on("click", function () {
     console.log(nameEntryArea.val())
     localStorage["Name"] = nameEntryArea.val()
     hideNameInput()
-    nameGreeting.text(localStorage["Name"])
+    nameGreeting.text(localStorage["Name"]);
+    displayPage();
+
 })
 
 function hideNameInput() {
@@ -67,6 +74,12 @@ function displayTheName() {
     console.log("called when we know theres a name")
 }
 
+function displayPage() {
+    greetingSpan.classList.remove("invisible");
+    greetingSubheader.classList.remove("invisible");
+    timeHeader.classList.remove("invisible");
+    mainContent.classList.remove("invisible")
+}
 
 generateBackground();
 

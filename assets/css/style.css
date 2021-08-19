@@ -8,7 +8,7 @@
 #weatherBtn {
     width: 600px;
     height: 125px;
-    font-size: 16px;
+    font-size: 20px;
 }
 
 #card {
@@ -65,13 +65,14 @@
     font-weight: 600;
     font-size: 1.5rem;
   }
-<<<<<<< HEAD
-  
-=======
 
   .headerbox {
       width: 100%;
-      color: white;
+      color: var(--white)
+  }
+
+  .bg-yellow {
+      background-color: var(--yellow);
+      color: var(--black)
   }
   
->>>>>>> 3de178907cec8bc65aa74845c74f886b896af300

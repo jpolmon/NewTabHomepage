@@ -25,9 +25,9 @@ fetch(factUrl, {cache:"no-store"})
 
 			var factHeader = document.createElement("h2");
             var factCategory = document.createElement("h4")
-            factHeader.classList.add("card", "bg-warning", "opacity-100")
+            factHeader.classList.add("card", "bg-yellow", "opacity-100")
             factHeader.textContent = "Random Fun Fact"
-            factCategory.textContent = "Category: " + data.contents.category + ", " + data.contents.subcategory
+            factCategory.textContent = "Category: " + data.contents.category + "- " + data.contents.subcategory
             factContainer.appendChild(factHeader);
             factHeader.appendChild(factCategory);
 
@@ -51,7 +51,7 @@ function onThisDay() {
             console.log(data)
 
             var historicalFactHeading = document.createElement("h3");
-            historicalFactHeading.classList.add("card", "bg-warning", "mt-3", "opacity-100");
+            historicalFactHeading.classList.add("card", "bg-yellow", "mt-3", "opacity-100");
             historicalFactHeading.textContent = "On this day in " + data.contents.year + ":"
             factContainer.appendChild(historicalFactHeading)
 

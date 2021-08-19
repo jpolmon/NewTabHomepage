@@ -1,4 +1,4 @@
-let button=document.getElementById("button")
+let button=document.querySelector("#jokeButton")
   
 button.addEventListener("click", getJoke)
 

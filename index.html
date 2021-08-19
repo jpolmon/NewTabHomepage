@@ -14,14 +14,15 @@
 </head>
 
 <body>
-<header class="headerbox">
-     <h1 class = "header" ></h1> <p id="name-slot"></p>
-    <input class = "name" type="text"> <button class="submit">What's your name?</button> 
+<header class ="container mt-3 border rounded-3 bg-secondary text-left w-50 p-3 headerbox">
+    <h1><span class="header"></span> <span id="name-slot"></span></h1>
+    <input placeholder="enter name here" class = "name" type="text"> <button class="submit">save name</button> 
         
-     
+    
      <p> Welcome to your homepage! I hope you have a wonderful day! </p>
      <p id="currentDay"></p>
 </header>
+<<<<<<< HEAD
 <main>
     <section class="d-flex justify-content-center">
         <button class="btn btn-secondary p-0" id="weatherBtn">Get your weather</button>
@@ -58,6 +59,50 @@
             </li>
         </ul>
     </section>
+=======
+<section class="d-flex justify-content-center">
+    <button class="mt-3" id="weatherBtn">Get your weather <br> (Please enable browser geolocation before you click!)</button>
+    <ul class="justify-content-space-between" id="weatherCards">
+        <li class="list-group-item mt-3 border rounded-3 bg-secondary text-center" id="card">
+            <h4 id="day0"></h4>
+            <p class="m-0" id="date0"></p>
+            <p class="m-0" id="icon0">Image</p>
+            <h4 id=temp0></h4>
+        </li>
+        <li class="list-group-item mt-3 border rounded-3 bg-secondary text-center" id="card">
+            <h4 id="day1"></h4>
+            <p class="m-0" id="date1"></p>
+            <p class="m-0" id="icon1">Image</p>
+            <h4 id="temp1"></h4>
+        </li>
+        <li class="list-group-item mt-3 border rounded-3 bg-secondary text-center" id="card">
+            <h4 id="day2"></h4>
+            <p class="m-0" id="date2"></p>
+            <p class="m-0" id="icon2">Image</p>
+            <h4 id="temp2"></h4>
+        </li>
+        <li class="list-group-item mt-3 border rounded-3 bg-secondary text-center" id="card">
+            <h4 id="day3"></h4>
+            <p class="m-0" id="date3"></p>
+            <p class="m-0" id="icon3">Image</p>
+            <h4 id="temp3"></h4>
+        </li>
+        <li class="list-group-item mt-3 border rounded-3 bg-secondary text-center" id="card">
+            <h4 id="day4"></h2>
+            <p class="m-0" id="date4"></p>
+            <p class="m-0" id="icon4">Image</p>
+            <h4 id="temp4"></h4>
+        </li>
+    </ul>
+</section>
+
+<section class ="container mt-3 border rounded-3 bg-secondary text-left w-50 p-3 float-end" id="fact-generator">
+</section>
+<section class ="container mt-3 border rounded-3 bg-secondary text-left w-50 p-3" id= "jokeGenerator"><button class="buttons" id="jokeButton" type="button">Need a laugh?</button>
+    <p id="setup"></p>
+    <p id="punchline"></p>
+</section>
+>>>>>>> 3de178907cec8bc65aa74845c74f886b896af300
 
     <section class ="container mt-3 border rounded-3 bg-secondary text-left w-50 p-3 float-end" id="fact-generator">
     </section>

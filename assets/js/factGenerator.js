@@ -25,14 +25,14 @@ fetch(factUrl, {cache:"no-store"})
 
 			var factHeader = document.createElement("h2");
             var factCategory = document.createElement("h4")
-            factHeader.classList.add("card", "bg-warning")
+            factHeader.classList.add("card", "bg-yellow", "opacity-100")
             factHeader.textContent = "Random Fun Fact"
-            factCategory.textContent = "Category: " + data.contents.category + ", " + data.contents.subcategory
+            factCategory.textContent = "Category: " + data.contents.category + "- " + data.contents.subcategory
             factContainer.appendChild(factHeader);
             factHeader.appendChild(factCategory);
 
 			var fact = document.createElement("h3");
-            fact.classList.add("card", "bg-dark", "text-white");
+            fact.classList.add("card", "bg-dark", "text-white", "opacity-100");
             fact.textContent = data.contents.fact
             factContainer.appendChild(fact);
             
@@ -51,12 +51,12 @@ function onThisDay() {
             console.log(data)
 
             var historicalFactHeading = document.createElement("h3");
-            historicalFactHeading.classList.add("card", "bg-warning", "mt-3");
+            historicalFactHeading.classList.add("card", "bg-yellow", "mt-3", "opacity-100");
             historicalFactHeading.textContent = "On this day in " + data.contents.year + ":"
             factContainer.appendChild(historicalFactHeading)
 
             var historicalFact = document.createElement("h3")
-            historicalFact.classList.add("card", "bg-dark", "text-white");
+            historicalFact.classList.add("card", "bg-dark", "text-white", "opacity-100");
             historicalFact.textContent = data.contents.event
             factContainer.appendChild(historicalFact)
         })

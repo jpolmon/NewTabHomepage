@@ -1,5 +1,6 @@
 let weatherBtn = document.querySelector("#weatherBtn");
 let resetBtn = document.querySelector("#renameBtn");
+let backgroundBtn = document.querySelector("#backgroundBtn")
 
 var currentDay = moment().format('dddd') + " " + moment().format('MMMM Do YYYY');
 var currentClockTime = moment().format('h:mm:ss a');
@@ -185,3 +186,4 @@ function renderWeather(weatherData) {
 
 resetBtn.addEventListener("click", resetPage);
 weatherBtn.addEventListener("click", getWeatherInfo);
+backgroundBtn.addEventListener("click", generateBackground);

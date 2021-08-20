@@ -2,7 +2,7 @@
 
 ## Purpose
 
-The purpose of this project was to create a website that could be utilized for new tabs within the user browser. When first visiting the site the user is prompted to enter in their name, once they do this once the site will greet them whenever they visit it again. The user is presented with the time of day, an optional weather forecast, and some interresting facts/jokes.
+The purpose of this project was to create a website that could be utilized for new tabs within the user browser. When first visiting the site the user is prompted to enter in their name, once they do this, then the site will greet them whenever they visit it again. The user is presented with the time of day, an optional weather forecast, and some interesting facts/jokes.
 
 Some features of the site are:
 - Interactive UI created with HTML, CSS, and JavaScript. Bootstrap was used as the framework for the CSS and JQuery was utilized for website functionality. 
@@ -10,7 +10,7 @@ Some features of the site are:
 - Adaptive greeting using Moment.js that will change depending on the time of day. 
 - Randomly generated background that the user can change if they desire. 
 - Optional 5-day weather forecast that is taken from the browser location.
-- Events that happened on the current day in histroy.
+- Events that happened on the current day in history.
 - A random fact and its category.
 - User can opt to be presented with a random joke and then cycle through more. 
 

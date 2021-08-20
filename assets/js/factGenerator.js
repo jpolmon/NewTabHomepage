@@ -1,7 +1,7 @@
 //Fact Generator JS
 //API Key, endpoints and variables
 let apiKey = "uEauUrGQXbeLmF563UiIKAeF"
-let factUrl = `http://api.fungenerators.com/fact/random?&api_key=${apiKey}`
+let factUrl = `https://api.fungenerators.com/fact/random?&api_key=${apiKey}`
 let dayUrl = `https://api.fungenerators.com/fact/onthisday/event?&api_key=${apiKey}`
 var factContainer = document.getElementById("fact-generator")
 var generateBtn = document.getElementById("generateButton")
@@ -26,7 +26,7 @@ fetch(factUrl, {cache:"no-store"})
 			var factHeader = document.createElement("h2");
             var factCategory = document.createElement("h4")
             factHeader.classList.add("card", "bg-yellow", "opacity-100")
-            factHeader.textContent = "Random Fun Fact"
+            factHeader.textContent = "Random Fact"
             factCategory.textContent = "Category: " + data.contents.category + "- " + data.contents.subcategory
             factContainer.appendChild(factHeader);
             factHeader.appendChild(factCategory);

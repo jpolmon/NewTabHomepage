@@ -16,17 +16,17 @@
 <header class ="container mt-3 border rounded-3 bg-secondary text-left w-50 p-3 headerbox">
     <h1 class="invisible" id="greetingSpan"><span class="header"></span> 
     <span id="name-slot"></span></h1>
-    <input placeholder="enter name here" class = "name" type="text"> 
+    <input placeholder="Enter name here" class = "name" type="text"> 
     <button class="submit">Enter name to display homepage</button> 
     <p class="invisible" id="greetingSubheader"> Welcome to your homepage! I hope you have a wonderful day! </p>
     <p class="invisible timeHeader" id="currentDay"></p>
-    <button class="invisible position-absolute top-0 end-0 m-3" id="renameBtn">Reset name</button> 
-    <button class="position-absolute top-0 start-0 m-3" id="backgroundBtn">Change background image</button> 
+    <button class="invisible position-absolute top-0 end-0 m-3 rounded-pill border border-3" id="renameBtn">Reset name</button> 
+    <button class="position-absolute top-0 start-0 m-3 rounded-pill border border-3" id="backgroundBtn">Change background image</button> 
 </header>
 
 <main class="invisible">
     <section class="d-flex justify-content-center">
-        <button class="mt-3 border" id="weatherBtn">Get local weather <br> (Please enable browser geolocation before you click!)</button>
+        <button class="mt-3 border border-3 rounded-pill" id="weatherBtn">Click for local weather forecast<br> (Please enable browser geolocation before you click!)</button>
         <ul class="justify-content-space-between" id="weatherCards">
             <li class="list-group-item mt-3 border rounded-3 bg-secondary text-center" id="card">
                 <h4 id="day0"></h4>
@@ -64,7 +64,7 @@
     <section class ="container mt-3 border rounded-3 bg-secondary text-left w-50 p-3" id="fact-generator">
     </section>
     <section class ="container mt-3 border rounded-3 bg-secondary text-left w-50 p-3" id= "jokeGenerator">
-        <button class="buttons" id="jokeButton" type="button">Need a laugh?</button>
+        <button class="buttons rounded-pill border border-3" id="jokeButton" type="button">Need a laugh?</button>
         <p id="setup"></p>
         <p id="punchline"></p>
     </section>

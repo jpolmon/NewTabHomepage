@@ -13,6 +13,7 @@ var greetingSubheader = document.getElementById("greetingSubheader");
 var timeHeader = document.querySelector(".timeHeader");
 var mainContent = document.querySelector("main");
 
+//Functions that run on page load
 generateBackground();
 
 var interval = setInterval(function () {
@@ -43,12 +44,16 @@ var nameSubmissionButton = $(".submit");
 var nameEntryArea = $(".name");
 var nameGreeting = $("#name-slot");
 
+
+//Displays the page when there is a name in local storage. 
 if (localStorage["Name"] !== "") {
     hideNameInput();
     nameGreeting.text(localStorage["Name"]);
     displayPage();
 }
 
+
+//Handles when the user submits their name to display the rest of the page.
 nameSubmissionButton.on("click", function () {
     localStorage["Name"] = nameEntryArea.val();
     hideNameInput();
@@ -77,6 +82,7 @@ function displayPage() {
     resetBtn.classList.remove("invisible");
 }
 
+//Resets the page to take a new name input.
 function resetPage() {
     localStorage.clear();
     greetingSpan.classList.add("invisible");
@@ -103,6 +109,8 @@ function generateBackground() {
         });
 }
 
+
+// Retrieves weather information and displays it on the page.
 let lat;
 let long;
 navigator.geolocation.getCurrentPosition(function (position) {
@@ -184,6 +192,8 @@ function renderWeather(weatherData) {
     document.getElementById("weatherBtn").style.display = "none";
 }
 
+
+//Button event listeners.
 resetBtn.addEventListener("click", resetPage);
 weatherBtn.addEventListener("click", getWeatherInfo);
 backgroundBtn.addEventListener("click", generateBackground);

@@ -14,7 +14,7 @@ Some features of the site are:
 - A random fact and its category.
 - User can opt to be presented with a random joke and then cycle through more. 
 
-The site can be found at: https://jpolmon.github.io/Project01/
+The site can be found at: https://jpolmon.github.io/NewTabHomepage/
 
 ---
 ## API's integrated

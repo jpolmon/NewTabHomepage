@@ -1,4 +1,4 @@
-# Project 1: Interactive Front-End Application - New Tab Homepage
+Interactive Front-End Application - New Tab Homepage
 
 ## Purpose
 

@@ -1,6 +1,6 @@
 //Fact Generator JS
 //API Key, endpoints and variables
-let apiKey = "uEauUrGQXbeLmF563UiIKAeF"
+let apiKey = "gXcbQbXh8QEm891LujhR4QeF"
 let factUrl = `https://api.fungenerators.com/fact/random?&api_key=${apiKey}`
 let dayUrl = `https://api.fungenerators.com/fact/onthisday/event?&api_key=${apiKey}`
 var factContainer = document.getElementById("fact-generator")
